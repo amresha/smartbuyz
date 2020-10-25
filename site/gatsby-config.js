@@ -11,5 +11,17 @@ module.exports = {
 			googleTagManagerId: `${ process.env.GOOGLE_TAGMANAGER_ID }`,
 			fbAppId: `${ process.env.FB_APP_ID }`
 		}
-	} ]
+	}, 
+	{
+		resolve: "gatsby-source-wordpress-experimental",
+		 options: {
+			debug: {
+			 graphql: {
+				copyHtmlResponseOnError: true
+			  }
+			}
+		  }
+	   }
+
+]
 };
