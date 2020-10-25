@@ -1,20 +1,25 @@
 import React from "react";
 import Slider from "react-slick";
 import "./style.scss";
+import EduVideo from "../../../images/Education.mp4"
+import Home from "../../../images/videos/Home.mp4"
+import Bike from "../../../images/videos/Bike.mp4"
+
 
 import { isEmpty } from "lodash";
 import Link from "gatsby-link";
 
-const Carousel = ({ categories }) => {
+const Carousel = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
     arrows: true,
     fade: true,
+    autoplay: true,
+    autoplaySpeed: 11500,
+    cssEase: "linear",
     pauseOnDotsHover: true,
     pauseOnFocus: true,
   };
@@ -22,40 +27,63 @@ const Carousel = ({ categories }) => {
   return (
     <div>
       <Slider {...settings}>
-        {!isEmpty(categories.nodes)
-          ? categories.nodes.map((category) => {
-              return (
-                <div key={category.id} className="">
-                  <div className="carousel-img-wrap">
-                    {!isEmpty(category.image) &&
-                    !isEmpty(category.image.sourceUrl) ? (
-                      <img
-                        src={ category.image.sourceUrl }
-                        alt={
-                          !isEmpty(category.image.altText)
-                            ? category.image.altText
-                            : category.name
-                        }
-                      />
-                    ) : null}
-                  </div>
-                  <div className="carousal-info">
-                    <div className="container">
-                      <div className="carousal-info-inner">
-                        <h2>{ category.name }</h2>
-                        <p>{ category.description }</p>
+      <div>
+      <div class="color-overlay"></div>
+        <video width="100%" autoplay="true" loop playsinline muted>
+      	<source src={Bike} type="video/mp4" />
+    		</video>
+                   <div class="overlay">
+      
+                      <h2 style={{color: '#00c4f1'}}>Smart Outdoor
+                        <span>FLEXIBLE AND</span>
+                        <span>PORTABLE</span>
+                        <p>Enjoy your trip without any hassel!</p>
                         <Link
-                          to={category.uri}
-                          className="btn btn-outline-dark"
-                        >Explore
+                          to="/product-category/smart-education/"
+                          className="btn btn-light"
+                        >Explore Store
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })
-          : null}
+                        </h2>
+                   </div>                   
+      </div>
+  
+      <div>
+      <div class="color-overlay"></div>
+
+        <video width="100%" autoplay="true" loop playsinline muted>
+      	<source src={EduVideo} type="video/mp4" />
+    		</video>
+                   <div class="overlay">
+      
+                      <h2 style={{color: '#ffd300'}}>Smart Learning
+                        <span>CHOOSE SMART</span>
+                        <span>LEARNING TOOLS</span>
+                        <p>Help your child learn better!</p>
+                        <Link
+                          to="/product-category/smart-education/"
+                          className="btn btn-light"
+                        >SHOP NOW
+                        </Link></h2>
+                   </div>                   
+      </div>
+      <div>
+      <div class="color-overlay"></div>
+
+        <video width="100%" autoplay="true" loop playsinline muted>
+      	<source src={Home} type="video/mp4" />
+    		</video>
+                   <div class="overlay">
+      
+                      <h2 style={{color: '#1ce000'}}>Smart Home & Garden
+                        <span>BUILD YOUR HOME</span>
+                        <span>WITH SMART PRODUCTS</span>
+                        <Link
+                          to="/product-category/smart-education/"
+                          className="btn btn-light"
+                        >SHOP NOW
+                        </Link></h2>
+                   </div>                   
+      </div>                 
       </Slider>
     </div>
   );

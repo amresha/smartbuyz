@@ -10,7 +10,6 @@ const FrontPage = ( props ) => {
 
 	const {
 		      pageContext: {
-			      page: { title, seo, uri },
 			      categories,
 			      categoryName,
 			      postSearchData: { products, options }
@@ -23,11 +22,11 @@ const FrontPage = ( props ) => {
 				! isEmpty( props.pageContext ) ? (
 					<>
 						<SEO
-							title={ title }
-							seoData={ seo }
-							uri={ uri }
+							title= {'Smartbuyz'}
+							seoData={123}
+							uri={'123'}
 							header={ { siteTitle: 'Gatsby WooCommerce Theme' } }
-							openGraphImage={ getOgImage( seo ) }
+							openGraphImage={ getOgImage( 'seo' ) }
 						/>
 						<Carousel categories={ categories }/>
 						<Search
