@@ -15,9 +15,12 @@ module.exports = {
 	{
 		resolve: "gatsby-source-wordpress-experimental",
 		 options: {
+			schema: {
+				timeout: 9999999,
+			  }, 
 			debug: {
 			 graphql: {
-				copyHtmlResponseOnError: true
+				copyHtmlResponseOnError: true,
 			  }
 			}
 		  }
